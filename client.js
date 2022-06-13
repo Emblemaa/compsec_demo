@@ -29,7 +29,9 @@ const client = new userProto.UserService(
     fs.readFileSync("./certs/client/client.key"),
     fs.readFileSync("./certs/client/client.crt"),
     {
-      checkServerIdentity: (hostname, cert) => {},
+      checkServerIdentity: (hostname, cert) => {
+        console.log(cert);
+      },
     }
   )
 );
@@ -42,7 +44,7 @@ const auth = (req, res, next) => {
   if (token.split(" ")[0] === "Bearer") token = token.split(" ")[1];
 
   try {
-    const decoded = jwt.verify(token, "supercalifragilisticexpialidocious");
+    const decoded = jwt.verify(token, fs.readFileSync("./jwt_keys/rsa.public"));
     req.user = decoded;
   } catch (err) {
     if (err.name === "TokenExpiredError") {
@@ -79,8 +81,8 @@ app.post("/login", (req, res) => {
             status: "Ok",
             token: jwt.sign(
               { username: username },
-              "supercalifragilisticexpialidocious",
-              { expiresIn: 20000 }
+              fs.readFileSync("./jwt_keys/rsa.private"),
+              { algorithm: "RS256", expiresIn: 20000 }
             ),
           });
         }
