@@ -100,5 +100,5 @@ app.get("/", (_, res) => {
 });
 
 app.listen(3000, "localhost", () => {
-  console.log("Listening for request");
+  console.log("Listening for request at 3000");
 });

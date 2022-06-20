@@ -42,5 +42,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3001, "localhost", () => {
-  console.log("Listening for request");
+  console.log("Listening for request at 3001");
 });
