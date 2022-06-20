@@ -12,6 +12,6 @@
 - After logging in using ```/login``` endpoint, a JWT whose signature is encrypted using RS256 algorithm is returned for user verification when using ```/profile``` endpoint. The private and public keys responsible for encrypting and decrypting the JWT's signature are stored in ```./jwt_keys``` directory
 ## Before running the project
 Open cmd in the project directory and run  
-> ```bash script.sh``` 
+> bash script.sh
 
-to generate certificates and keys for the server and its client, and JWT's private and public keys
+to generate certificates and keys for the server and its clients, and JWT's private and public keys
