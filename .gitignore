@@ -1,2 +1,3 @@
 /certs/*
 /jwt_keys/*
+/app/node_modules/*
