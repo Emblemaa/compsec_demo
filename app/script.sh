@@ -38,7 +38,6 @@ fi
 node server.js &
 node client.js &
 node unauth_client.js &
-
 wait -f
 sudo pkill node 
 exit $!
