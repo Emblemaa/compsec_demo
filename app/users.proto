@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message UserResponse {
+    string username = 1;
+    string password = 2;
+    string fullname = 3;
+    int32 age = 4;
+    string email = 5;
+}
+
+message Empty {}
+
+message UserList {
+    repeated UserResponse users = 1;
+}
+
+message UserRequest {
+    string username = 1;
+}
+
+service UserService {
+    rpc getAllUsers (Empty) returns (UserList) {}
+    rpc getUserByUsername (UserRequest) returns (UserResponse) {}
+}
