@@ -6,7 +6,7 @@ services:
     working_dir: /app
     volumes:
       - ./app:/app
-    command: [/bin/bash, ./script.sh]
+    command: [/bin/bash, ./command.sh]
     ports:
       - "3000:3000"
       - "3001:3001"
