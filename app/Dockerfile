@@ -1,5 +1,3 @@
 FROM node:latest
-WORKDIR /app
-COPY . ./app
-EXPOSE 3000
-CMD ./command.sh
+
+RUN apt-get update && apt-get install dos2unix
