@@ -47,7 +47,7 @@ server.addService(diceProto.UserService.service, {
 });
 
 server.bindAsync(
-  "localhost:50051",
+  "0.0.0.0:50051",
   //   grpc.ServerCredentials.createInsecure(),
   grpc.ServerCredentials.createSsl(
     fs.readFileSync("./certs/root.crt"),

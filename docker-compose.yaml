@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  node:
+    build: .
+    command: [/bin/bash, ./script.sh]
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"

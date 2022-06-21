@@ -23,7 +23,7 @@ const app = express();
 app.use(express.json());
 
 const client = new userProto.UserService(
-  "localhost:50051",
+  "0.0.0.0:50051",
   grpc.credentials.createSsl(
     fs.readFileSync("./certs/root.crt"),
     fs.readFileSync("./certs/client/client.key"),
@@ -99,6 +99,6 @@ app.get("/", (_, res) => {
   return res.status(200).send("Compsec demo server");
 });
 
-app.listen(3000, "localhost", () => {
+app.listen(3000, "0.0.0.0", () => {
   console.log("Listening for request at 3000");
 });

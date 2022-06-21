@@ -21,7 +21,7 @@ const app = express();
 
 app.get("/", (req, res) => {
   const client = new userProto.UserService(
-    "localhost:50051",
+    "0.0.0.0:50051",
     // grpc.credentials.createInsecure()
     grpc.credentials.createSsl(
       fs.readFileSync("./certs/root.crt"),
@@ -41,6 +41,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(3001, "localhost", () => {
+app.listen(3001, "0.0.0.0", () => {
   console.log("Listening for request at 3001");
 });

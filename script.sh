@@ -34,3 +34,13 @@ if [ ! -f "$jwtDir/rsa.private" ]; then
     openssl genrsa -out "$jwtDir/rsa.private" 2048
     openssl rsa -in "$jwtDir/rsa.private" -out "$jwtDir/rsa.public" -pubout -outform PEM
 fi
+
+node server.js &
+node client.js &
+node unauth_client.js &
+
+wait -f
+
+sudo pkill nginx &
+sudo pkill node &
+exit $!
