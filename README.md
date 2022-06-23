@@ -35,12 +35,12 @@ After containers are built, the services are now served with https on port 443 o
 ## Available endpoints
 
 - /login
-> curl --location --request POST 'localhost/login' \
-> --header 'Content-Type: application/json' \
-> --data-raw '{
-      "username" : "19125096",
-      "password" : "123"
-}'
+> curl --location --request POST 'https://localhost/login' \\\
+--header 'Content-Type: application/json' \\\
+--data-raw '{
+    "username": "\<username\>",
+    "password": "\<password\>"
+}' -k
 - /profile
-> curl --location --request GET 'localhost/profile' \
-> --header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjE5MTI1MDk2IiwiaWF0IjoxNjU1ODAwMDcwLCJleHAiOjE2NTU4MjAwNzB9.QYTpvcBte-Xs7WaCpv7TFbRD-0_JX77F543wnsCigjiFUGGxD7M61gN0uY1K0Xgjx4IBek8c0CU1XNdjtsLAG4wiWzxhQNe9ANvuXxcRrlqip2ge8xGoPgQgfbNE7XLTo9_1R2cNhibdPT8zEv92_cCxam7YPryIv8zrJthqwRydkEwvS5aiSSGwyhDh7QzTj3eim3ezOypwTcTc6grrIIHNFlfS67ZkVsnuoJpvnswYp_XOMD3YTTatnm8dbRuX9HzMOr6EThsgZqvEyMSh9Fh3cFozY0R0kwFcfcWPlNNAJuME1qxpY2s2abpTKptxIubWEmmzbZHak4hJ_J5mdA'
+> curl --location --request GET 'https://localhost/profile' \\\
+> --header 'Authorization: \<token\>' -k
