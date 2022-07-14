@@ -44,3 +44,5 @@ After containers are built, the services are now served with https on port 443 o
 - /profile
 > curl --location --request GET 'https://localhost/profile' \\\
 > --header 'Authorization: \<token\>' -k
+- Test mTLS unauth client
+> curl --location --req GET 'http://localhost/'
